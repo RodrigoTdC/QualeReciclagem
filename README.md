@@ -29,10 +29,10 @@
 
 **"Interface" de Usuário:**
 ```
-	* Recebe entrada do teclado e chama os métodos adequados do cadastro. Se o usuário desejar sair, lança alguma exceção
+	* Receber entrada do teclado e chama os métodos adequados do cadastro. Se o usuário desejar sair, lança alguma exceção
 ```
 
 **Main:**
 ```
-	* Chama a interface
+	* Chamar a interface
 ```
