@@ -15,8 +15,8 @@ public class Cadastro {
     private HashSet<Produto> produtos = new HashSet<>();
     private HashSet<Fabricante> fabricantes = new HashSet<>();
     
-    public void cadastraProduto(){
-        
+    public void cadastraProduto(Produto produto){
+        produtos.add(produto);
     }
     
     public Produto pesquisaProdutoNome(String nome) throws Exception{
