@@ -5,7 +5,11 @@
  */
 package qualereciclagem.pesquisadeprodutos.main;
 
+import java.util.HashMap;
+import qualereciclagem.pesquisadeprodutos.classes.Cadastro;
 import qualereciclagem.pesquisadeprodutos.classes.InterfaceDeUsuario;
+import qualereciclagem.pesquisadeprodutos.classes.Materiais;
+import qualereciclagem.pesquisadeprodutos.classes.Produto;
 
 /**
  *
@@ -13,11 +17,15 @@ import qualereciclagem.pesquisadeprodutos.classes.InterfaceDeUsuario;
  */
 public class Main {
     public static void main(String[] args){
+        
+        Cadastro cadastro = new Cadastro("produtos.txt");
+        InterfaceDeUsuario iu = new InterfaceDeUsuario();
+
         boolean continua = true;
         
         while (continua){
             try{
-                InterfaceDeUsuario.exibeInterface();
+                iu.exibeInterface(cadastro);
             }
             catch(Exception e){
                 continua = false;

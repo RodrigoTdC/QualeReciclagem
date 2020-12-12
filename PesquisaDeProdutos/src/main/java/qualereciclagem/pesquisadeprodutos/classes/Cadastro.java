@@ -12,14 +12,29 @@ import java.util.HashSet;
  * @author rotos
  */
 public class Cadastro {
-    private HashSet<Produto> produtos = new HashSet<>();
-    //private HashSet<Fabricante> fabricantes = new HashSet<>();
+    private String nomeArquivo;
+    private HashSet<Produto> produtos;
+    
+    public Cadastro(String nomeArquivo){
+        this.nomeArquivo = nomeArquivo;
+        this.produtos = load();
+    }
+    
+    public String getNomeArquivo(){
+        return nomeArquivo;
+    }
+    
+    public HashSet<Produto> getProdutos(){
+        return produtos;
+    }
     
     public void cadastraProduto(Produto produto){
         produtos.add(produto);
+        save();
     }
     
     public Produto pesquisaProdutoNome(String nome) throws Exception{
+        produtos = load();
         for(Produto produto : produtos){
             if (produto.getNome().equals(nome)){
                 return produto;
@@ -29,6 +44,7 @@ public class Cadastro {
     }
     
     public Produto pesquisaProdutoCodigo(long codigo) throws Exception{
+        produtos = load();
         for(Produto produto : produtos){
             if (produto.getCodigo() == codigo){
                 return produto;
@@ -37,16 +53,13 @@ public class Cadastro {
         throw new Exception();
     }
     
-    /*
-    public Fabricante pesquisaFabricante(String nome) throws Exception{
-        for(Fabricante fabricante : fabricantes){
-            if (fabricante.getNome().equals(nome)){
-                return fabricante;
-            }
-        }
-        throw new Exception();
+    private void save() {
+        GestaoDeArquivos.save(this.produtos, nomeArquivo);
     }
-    */
+
+    private HashSet<Produto> load() {
+        return GestaoDeArquivos.load(nomeArquivo);
+    }
 }
 
 

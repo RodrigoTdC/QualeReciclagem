@@ -5,20 +5,21 @@
  */
 package qualereciclagem.pesquisadeprodutos.classes;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author rotos
  */
-public class Produto {
-    public enum Materiais{PAPEL, PLASTICO, VIDRO, METAL;}
+public class Produto implements Serializable{
+    //public enum Materiais{PAPEL, PLASTICO, VIDRO, METAL;}
     
-    private String nome;
-    private String marca;
-    private String categoria;
-    private long codigo;
-    private HashMap<String, Materiais> partes;
+    private final String nome;
+    private final String marca;
+    private final String categoria;
+    private final long codigo;
+    private final HashMap<String, Materiais> partes;
     
     public Produto(String nome, String marca, String categoria, long codigo, HashMap<String, Materiais> partes){
         this.nome = nome;
