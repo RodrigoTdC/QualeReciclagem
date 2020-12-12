@@ -13,7 +13,7 @@ import java.util.HashSet;
  */
 public class Cadastro {
     private HashSet<Produto> produtos = new HashSet<>();
-    private HashSet<Fabricante> fabricantes = new HashSet<>();
+    //private HashSet<Fabricante> fabricantes = new HashSet<>();
     
     public void cadastraProduto(Produto produto){
         produtos.add(produto);
