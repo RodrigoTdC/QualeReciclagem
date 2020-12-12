@@ -5,29 +5,48 @@
  */
 package qualereciclagem.pesquisadeprodutos.classes;
 
-import java.util.Set;
+import java.util.HashSet;
 
 /**
  *
  * @author rotos
  */
 public class Cadastro {
-    private Set<Produto> produtos;
-    private Set<Fabricante> fabricantes;
+    private HashSet<Produto> produtos;
+    private HashSet<Fabricante> fabricantes;
     
     public void cadastraProduto(){
         
     }
     
-    public Produto pesquisaProdutoNome(String nome){
-        
+    public Produto pesquisaProdutoNome(String nome) throws Exception{
+        for(Produto produto : produtos){
+            if (produto.getNome().equals(nome)){
+                return produto;
+            }
+        }
+        throw new Exception();
     }
     
-    public Produto pesquisaProdutoCodigo(int codigo){
-        
+    public Produto pesquisaProdutoCodigo(long codigo) throws Exception{
+        for(Produto produto : produtos){
+            if (produto.getCodigo() == codigo){
+                return produto;
+            }
+        }
+        throw new Exception();
     }
     
-    public Fabricante pesquisaFabricante(String nome){
-        
+    /*
+    public Fabricante pesquisaFabricante(String nome) throws Exception{
+        for(Fabricante fabricante : fabricantes){
+            if (fabricante.getNome().equals(nome)){
+                return fabricante;
+            }
+        }
+        throw new Exception();
     }
+    */
 }
+
+

@@ -17,10 +17,10 @@ public class Produto {
     private String nome;
     private String marca;
     private String categoria;
-    private int codigo;
+    private long codigo;
     private HashMap<String, Materiais> partes;
     
-    public Produto(String nome, String marca, String categoria, int codigo, HashMap<String, Materiais> partes){
+    public Produto(String nome, String marca, String categoria, long codigo, HashMap<String, Materiais> partes){
         this.nome = nome;
         this.marca = marca;
         this.categoria = categoria;
@@ -37,7 +37,7 @@ public class Produto {
     public String getCategoria(){
         return categoria;
     }
-    public int getCodigo(){
+    public long getCodigo(){
         return codigo;
     }
     public HashMap<String, Materiais> getPartes(){

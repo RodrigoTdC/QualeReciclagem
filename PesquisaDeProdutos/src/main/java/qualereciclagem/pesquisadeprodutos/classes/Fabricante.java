@@ -19,4 +19,12 @@ public class Fabricante {
         this.nome = nome;
         this.produtos.add(produto);
     }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public ArrayList<Produto> getProdutos(){
+        return produtos;
+    }
 }
