@@ -10,5 +10,7 @@ package qualereciclagem.pesquisadeprodutos.classes;
  * @author rotos
  */
 public class InterfaceDeUsuario {
-    
+    public static void exibeInterface(){
+        
+    }
 }

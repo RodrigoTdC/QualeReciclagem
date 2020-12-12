@@ -5,10 +5,23 @@
  */
 package qualereciclagem.pesquisadeprodutos.main;
 
+import qualereciclagem.pesquisadeprodutos.classes.InterfaceDeUsuario;
+
 /**
  *
  * @author rotos
  */
 public class Main {
-    
+    public static void main(String[] args){
+        boolean continua = true;
+        
+        while (continua){
+            try{
+                InterfaceDeUsuario.exibeInterface();
+            }
+            catch(Exception e){
+                continua = false;
+            }
+        }
+    }
 }
