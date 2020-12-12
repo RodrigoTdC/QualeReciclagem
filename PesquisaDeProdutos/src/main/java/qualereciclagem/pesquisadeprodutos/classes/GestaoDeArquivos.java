@@ -13,7 +13,7 @@ import java.util.HashSet;
  * @author rotos
  */
 public class GestaoDeArquivos {
-    protected static boolean save(HashSet<Produto> produtos, String nomeArquivo) {
+    protected static boolean save(HashSet<Produto> produtos, String nomeArquivo) {//escreve o HashSet no arquivo
         if (produtos != null) {
             
             FileOutputStream fileOutputStream = null;
@@ -42,7 +42,7 @@ public class GestaoDeArquivos {
         return false;
     }
 
-    protected static HashSet<Produto> load(String nomeArquivo) {
+    protected static HashSet<Produto> load(String nomeArquivo) {//retorna o HashSet do arquivo
         if(nomeArquivo != null) {
 
             FileInputStream fileInputStream = null;

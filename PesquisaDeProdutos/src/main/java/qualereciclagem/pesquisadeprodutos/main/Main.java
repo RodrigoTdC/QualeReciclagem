@@ -23,7 +23,7 @@ public class Main {
 
         boolean continua = true;
         
-        while (continua){
+        while (continua){//chama a função até o usuário pedir para sair
             try{
                 iu.exibeInterface(cadastro);
             }

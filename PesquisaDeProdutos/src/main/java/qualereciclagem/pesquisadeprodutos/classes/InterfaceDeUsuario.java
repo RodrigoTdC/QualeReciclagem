@@ -16,21 +16,27 @@ import java.util.Scanner;
 public class InterfaceDeUsuario {
     private Scanner teclado = new Scanner(System.in);
     
-    public void exibeInterface(Cadastro cadastro) throws Exception{
+    public void exibeInterface(Cadastro cadastro) throws Exception{//função principal da interface
         System.out.println("------------");
         System.out.println("1 - Pesquisa de produto");
         System.out.println("2 - Cadastro de produto");
         System.out.println("0 - Sair");
         byte escolha = teclado.nextByte();
         teclado.nextLine();
-        if (escolha == 1){
-            pesquisar(cadastro);
-        }
-        else if (escolha == 2){
-            cadastrar(cadastro);
-        }
-        else{
-            throw new Exception();
+        switch (escolha) {
+            case 1:
+                try{
+                    pesquisar(cadastro);
+                }
+                catch(Exception e){
+                    
+                }
+                break;
+            case 2:
+                cadastrar(cadastro);
+                break;
+            default:
+                throw new Exception();//emite uma exceção se o usuário deseja sair do programa
         }
     }
     
@@ -62,7 +68,7 @@ public class InterfaceDeUsuario {
             }
         }
         else{
-            throw new Exception();
+            throw new Exception();//emite uma exceção se o usuário deseja voltar ao menu principal
         }
     }
     
@@ -94,7 +100,7 @@ public class InterfaceDeUsuario {
                 partes.put(nomeParte, Materiais.valueOf(materialParte.toUpperCase()));
                 i++;
             }
-            catch (IllegalArgumentException e){
+            catch (IllegalArgumentException e){//se o material não estiver no enum "Materiais"
                  System.out.println("O material deve ser papel, plástico, vidro ou metal.");
             }
         }
@@ -115,11 +121,13 @@ public class InterfaceDeUsuario {
         }
     }
     
-    private static void imprimeProdutos(Cadastro cadastro){
+    /*
+    private static void imprimeProdutos(Cadastro cadastro){//imprime uma lista com todos os produtos cadastrados
         HashSet<Produto> produtos = cadastro.getProdutos();
         
         for (Produto item : produtos){
             imprimeProduto(item);
         }
     }
+    */
 }

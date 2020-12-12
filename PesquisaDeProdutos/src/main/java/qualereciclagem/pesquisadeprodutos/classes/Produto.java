@@ -13,13 +13,12 @@ import java.util.HashMap;
  * @author rotos
  */
 public class Produto implements Serializable{
-    //public enum Materiais{PAPEL, PLASTICO, VIDRO, METAL;}
     
     private final String nome;
     private final String marca;
     private final String categoria;
     private final long codigo;
-    private final HashMap<String, Materiais> partes;
+    private final HashMap<String, Materiais> partes;//partes individuais do produto e seus respectivos materiais
     
     public Produto(String nome, String marca, String categoria, long codigo, HashMap<String, Materiais> partes){
         this.nome = nome;

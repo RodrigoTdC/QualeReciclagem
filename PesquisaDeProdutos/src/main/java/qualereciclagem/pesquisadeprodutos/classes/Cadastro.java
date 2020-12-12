@@ -12,7 +12,7 @@ import java.util.HashSet;
  * @author rotos
  */
 public class Cadastro {
-    private String nomeArquivo;
+    private String nomeArquivo;//nome do arquivo onde será salvo o HashSet de produtos
     private HashSet<Produto> produtos;
     
     public Cadastro(String nomeArquivo){
@@ -33,7 +33,7 @@ public class Cadastro {
         save();
     }
     
-    public Produto pesquisaProdutoNome(String nome) throws Exception{
+    public Produto pesquisaProdutoNome(String nome) throws Exception{//retorna o objeto "Produto" com o nome informado, se existir
         produtos = load();
         for(Produto produto : produtos){
             if (produto.getNome().equals(nome)){
@@ -43,7 +43,7 @@ public class Cadastro {
         throw new Exception();
     }
     
-    public Produto pesquisaProdutoCodigo(long codigo) throws Exception{
+    public Produto pesquisaProdutoCodigo(long codigo) throws Exception{//retorna o objeto "Produto" com o código informado, se existir
         produtos = load();
         for(Produto produto : produtos){
             if (produto.getCodigo() == codigo){
@@ -53,11 +53,11 @@ public class Cadastro {
         throw new Exception();
     }
     
-    private void save() {
+    private void save() {//salva as mudanças feitas nas variável "produtos" no arquivo
         GestaoDeArquivos.save(this.produtos, nomeArquivo);
     }
 
-    private HashSet<Produto> load() {
+    private HashSet<Produto> load() {//retorna as variáveis armazenadas no arquivo
         return GestaoDeArquivos.load(nomeArquivo);
     }
 }
