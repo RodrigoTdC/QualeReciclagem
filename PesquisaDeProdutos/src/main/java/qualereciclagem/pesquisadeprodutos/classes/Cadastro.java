@@ -12,8 +12,8 @@ import java.util.HashSet;
  * @author rotos
  */
 public class Cadastro {
-    private HashSet<Produto> produtos;
-    private HashSet<Fabricante> fabricantes;
+    private HashSet<Produto> produtos = new HashSet<>();
+    private HashSet<Fabricante> fabricantes = new HashSet<>();
     
     public void cadastraProduto(){
         
