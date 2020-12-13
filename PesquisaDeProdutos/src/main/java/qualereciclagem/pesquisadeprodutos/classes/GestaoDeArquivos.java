@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package qualereciclagem.pesquisadeprodutos.classes;
 
 import java.io.*;
 import java.util.HashSet;
 
-/**
- *
- * @author rotos
- */
+
 public class GestaoDeArquivos {
     protected static boolean save(HashSet<Produto> produtos, String nomeArquivo) {//escreve o HashSet no arquivo
         if (produtos != null) {
@@ -32,8 +25,8 @@ public class GestaoDeArquivos {
                 e.printStackTrace();
             } finally {
                 try {
-                  if (fileOutputStream != null) fileOutputStream.close();
-                  if (objectOutputStream != null) objectOutputStream.close();
+                  if (fileOutputStream != null) fileOutputStream.close();//evita erro caso o arquivo não tenha sido acessado ocm sucesso
+                  if (objectOutputStream != null) objectOutputStream.close();//**
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -72,15 +65,12 @@ public class GestaoDeArquivos {
             }
             finally {
                 try {
-                  if (fileInputStream != null) fileInputStream.close();
-                  if (objectInputStream != null) objectInputStream.close();
+                  if (fileInputStream != null) fileInputStream.close();//evita erro caso o arquivo não tenha sido acessado ocm sucesso
+                  if (objectInputStream != null) objectInputStream.close();//**
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-        }
-        else{
-            return new HashSet<>();
         }
         return new HashSet<>();
     }

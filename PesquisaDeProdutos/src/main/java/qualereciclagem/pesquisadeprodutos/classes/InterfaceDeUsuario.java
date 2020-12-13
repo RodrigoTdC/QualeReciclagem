@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package qualereciclagem.pesquisadeprodutos.classes;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Scanner;
 
-/**
- *
- * @author rotos
- */
+
 public class InterfaceDeUsuario {
     private Scanner teclado = new Scanner(System.in);
     
@@ -48,27 +40,26 @@ public class InterfaceDeUsuario {
         byte escolha = teclado.nextByte();
         teclado.nextLine();
         
-        if (escolha == 1){
-            System.out.println("------------");
-            System.out.println("Digite o nome do produto:");
-            String nome = teclado.nextLine();
-            try {
-                imprimeProduto(cadastro.pesquisaProdutoNome(nome));
-            } catch (Exception ex) {
-                System.out.println("Produto não encontrado");
-            }
-        }
-        else if (escolha == 2){
-            System.out.println("Digite o código do produto:");
-            long codigo = teclado.nextLong();
-            try {
-                imprimeProduto(cadastro.pesquisaProdutoCodigo(codigo));
-            } catch (Exception ex) {
-                System.out.println("Produto não encontrado");
-            }
-        }
-        else{
-            throw new Exception();//emite uma exceção se o usuário deseja voltar ao menu principal
+        switch (escolha) {
+            case 1:
+                System.out.println("------------");
+                System.out.println("Digite o nome do produto:");
+                String nome = teclado.nextLine();
+                try {
+                    imprimeProduto(cadastro.pesquisaProdutoNome(nome));
+                } catch (Exception ex) {
+                    System.out.println("Produto não encontrado");
+                }   break;
+            case 2:
+                System.out.println("Digite o código do produto:");
+                long codigo = teclado.nextLong();
+                try {
+                    imprimeProduto(cadastro.pesquisaProdutoCodigo(codigo));
+                } catch (Exception ex) {
+                    System.out.println("Produto não encontrado");
+                }   break;
+            default:
+                throw new Exception();//emite uma exceção se o usuário deseja voltar ao menu principal
         }
     }
     
@@ -120,14 +111,4 @@ public class InterfaceDeUsuario {
             System.out.println("- " + entrada.getKey() + " -> " + entrada.getValue());
         }
     }
-    
-    /*
-    private static void imprimeProdutos(Cadastro cadastro){//imprime uma lista com todos os produtos cadastrados
-        HashSet<Produto> produtos = cadastro.getProdutos();
-        
-        for (Produto item : produtos){
-            imprimeProduto(item);
-        }
-    }
-    */
 }
